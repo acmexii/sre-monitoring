@@ -8,9 +8,9 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 100Gi
+      storage: 10Gi
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: prometheus
@@ -18,6 +18,9 @@ metadata:
   labels:
     app: prometheus
 spec:
+  selector:
+    matchLabels:
+      app: prometheus
   replicas: 1
   template:
     metadata:
@@ -28,7 +31,7 @@ spec:
       serviceAccountName: prometheus
       containers:
       - name: prometheus
-        image: gcr.io/cre-prometheus-slo-alerting/prometheus:latest
+        image: apexacme/prometheus:latest
         imagePullPolicy: Always
         ports:
         - name: webui
