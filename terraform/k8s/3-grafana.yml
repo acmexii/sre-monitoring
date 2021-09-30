@@ -16,7 +16,7 @@ spec:
         app: grafana
     spec:
       containers:
-      - image: apexacme/grafana:latest
+      - image: apexacme/grafana:v4
         name: grafana
         imagePullPolicy: Always
         ports:
@@ -33,7 +33,7 @@ metadata:
   annotations:
     prometheus.io/scrape: 'true'
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 8080
     targetPort: 8080
