@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: cloudprober
-        image: apexacme/cloudprober:latest
+        image: apexacme/cloudprober:v2
         env:
         - name: PORT
           value: "8080"
