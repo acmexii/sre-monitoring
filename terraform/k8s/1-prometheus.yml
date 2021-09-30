@@ -31,7 +31,7 @@ spec:
       serviceAccountName: prometheus
       containers:
       - name: prometheus
-        image: apexacme/prometheus:latest
+        image: apexacme/prometheus:v2
         imagePullPolicy: Always
         ports:
         - name: webui
